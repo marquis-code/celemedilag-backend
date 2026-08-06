@@ -1,0 +1,28 @@
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { SermonsService } from './sermons.service';
+import { CreateSermonDto } from './dto/create-sermon.dto';
+
+@Controller('sermons')
+export class SermonsController {
+  constructor(private readonly sermonsService: SermonsService) {}
+
+  @Post()
+  create(@Body() createSermonDto: CreateSermonDto) {
+    return this.sermonsService.create(createSermonDto);
+  }
+
+  @Get()
+  findAll() {
+    return this.sermonsService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.sermonsService.findOne(id);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.sermonsService.remove(id);
+  }
+}

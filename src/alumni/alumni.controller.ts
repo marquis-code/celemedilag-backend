@@ -1,0 +1,28 @@
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { AlumniService } from './alumni.service';
+import { CreateAlumnusDto } from './dto/create-alumnus.dto';
+
+@Controller('alumni')
+export class AlumniController {
+  constructor(private readonly alumniService: AlumniService) {}
+
+  @Post()
+  create(@Body() createAlumnusDto: CreateAlumnusDto) {
+    return this.alumniService.create(createAlumnusDto);
+  }
+
+  @Get()
+  findAll() {
+    return this.alumniService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.alumniService.findOne(id);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.alumniService.remove(id);
+  }
+}
