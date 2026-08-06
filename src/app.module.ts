@@ -15,6 +15,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { WebsocketsModule } from './websockets/websockets.module';
 import { UploadModule } from './upload/upload.module';
+import { StatsModule } from './stats/stats.module';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
@@ -39,6 +41,8 @@ import { UploadModule } from './upload/upload.module';
     GalleryModule,
     SettingsModule,
     AuthModule,
+    StatsModule,
+    ContactModule,
   ],
   controllers: [AppController],
   providers: [AppService],

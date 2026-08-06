@@ -8,8 +8,32 @@ export class Department {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ required: true })
+  @Prop()
   description: string;
+
+  @Prop()
+  hodName: string;
+
+  @Prop()
+  hodPhotoUrl: string;
+
+  @Prop()
+  meetingDays: string;
+
+  @Prop()
+  bannerImageUrl: string;
+
+  @Prop()
+  membersCount: number;
+
+  @Prop([String])
+  responsibilities: string[];
+
+  @Prop()
+  contactEmail: string;
+
+  @Prop()
+  contactPhone: string;
 }
 
 export const DepartmentSchema = SchemaFactory.createForClass(Department);

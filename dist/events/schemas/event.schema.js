@@ -15,8 +15,15 @@ let Event = class Event {
     title;
     description;
     date;
+    time;
     location;
-    imageUrl;
+    mapUrl;
+    bannerImageUrl;
+    speakers;
+    tags;
+    registrationUrl;
+    isPublished;
+    status;
 };
 exports.Event = Event;
 __decorate([
@@ -24,13 +31,17 @@ __decorate([
     __metadata("design:type", String)
 ], Event.prototype, "title", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Event.prototype, "description", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", Date)
 ], Event.prototype, "date", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Event.prototype, "time", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
@@ -38,7 +49,31 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], Event.prototype, "imageUrl", void 0);
+], Event.prototype, "mapUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Event.prototype, "bannerImageUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: [{ name: String, role: String, photoUrl: String, bio: String }] }),
+    __metadata("design:type", Array)
+], Event.prototype, "speakers", void 0);
+__decorate([
+    (0, mongoose_1.Prop)([String]),
+    __metadata("design:type", Array)
+], Event.prototype, "tags", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Event.prototype, "registrationUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ default: true }),
+    __metadata("design:type", Boolean)
+], Event.prototype, "isPublished", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Event.prototype, "status", void 0);
 exports.Event = Event = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], Event);

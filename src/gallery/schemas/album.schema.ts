@@ -8,8 +8,20 @@ export class Album {
   @Prop({ required: true })
   albumName: string;
 
-  @Prop({ type: [String], required: true })
-  photos: string[];
+  @Prop()
+  description: string;
+
+  @Prop()
+  date: Date;
+
+  @Prop()
+  coverImageUrl: string;
+
+  @Prop({ type: [{ url: String, caption: String, uploadedAt: Date }] })
+  photos: { url: string; caption: string; uploadedAt: Date }[];
+
+  @Prop([String])
+  tags: string[];
 }
 
 export const AlbumSchema = SchemaFactory.createForClass(Album);

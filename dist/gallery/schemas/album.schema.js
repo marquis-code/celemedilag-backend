@@ -13,7 +13,11 @@ exports.AlbumSchema = exports.Album = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 let Album = class Album {
     albumName;
+    description;
+    date;
+    coverImageUrl;
     photos;
+    tags;
 };
 exports.Album = Album;
 __decorate([
@@ -21,9 +25,25 @@ __decorate([
     __metadata("design:type", String)
 ], Album.prototype, "albumName", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [String], required: true }),
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Album.prototype, "description", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Date)
+], Album.prototype, "date", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Album.prototype, "coverImageUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: [{ url: String, caption: String, uploadedAt: Date }] }),
     __metadata("design:type", Array)
 ], Album.prototype, "photos", void 0);
+__decorate([
+    (0, mongoose_1.Prop)([String]),
+    __metadata("design:type", Array)
+], Album.prototype, "tags", void 0);
 exports.Album = Album = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], Album);

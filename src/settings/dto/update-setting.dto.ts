@@ -1,11 +1,6 @@
-import { IsNotEmpty, IsObject, IsString } from 'class-validator';
+import { IsDefined } from 'class-validator';
 
 export class UpdateSettingDto {
-  @IsString()
-  @IsNotEmpty()
-  key: string;
-
-  @IsObject()
-  @IsNotEmpty()
+  @IsDefined()
   value: any;
 }

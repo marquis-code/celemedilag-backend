@@ -14,9 +14,14 @@ const mongoose_1 = require("@nestjs/mongoose");
 let News = class News {
     title;
     content;
+    summary;
     category;
     author;
-    imageUrl;
+    tags;
+    coverImageUrl;
+    galleryUrls;
+    isPublished;
+    publishedAt;
 };
 exports.News = News;
 __decorate([
@@ -24,21 +29,41 @@ __decorate([
     __metadata("design:type", String)
 ], News.prototype, "title", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], News.prototype, "content", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], News.prototype, "category", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ required: true }),
-    __metadata("design:type", String)
-], News.prototype, "author", void 0);
+], News.prototype, "summary", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], News.prototype, "imageUrl", void 0);
+], News.prototype, "category", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], News.prototype, "author", void 0);
+__decorate([
+    (0, mongoose_1.Prop)([String]),
+    __metadata("design:type", Array)
+], News.prototype, "tags", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], News.prototype, "coverImageUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)([String]),
+    __metadata("design:type", Array)
+], News.prototype, "galleryUrls", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ default: true }),
+    __metadata("design:type", Boolean)
+], News.prototype, "isPublished", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Date)
+], News.prototype, "publishedAt", void 0);
 exports.News = News = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], News);

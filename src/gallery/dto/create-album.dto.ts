@@ -1,4 +1,16 @@
-import { IsArray, IsNotEmpty, IsString } from 'class-validator';
+import { IsArray, IsNotEmpty, IsString, IsOptional, ValidateNested } from 'class-validator';
+
+import { Type } from 'class-transformer';
+
+class PhotoDto {
+  @IsString()
+  @IsNotEmpty()
+  url: string;
+
+  @IsString()
+  @IsOptional()
+  caption?: string;
+}
 
 export class CreateAlbumDto {
   @IsString()
@@ -6,7 +18,7 @@ export class CreateAlbumDto {
   albumName: string;
 
   @IsArray()
-  @IsString({ each: true })
-  @IsNotEmpty()
-  photos: string[];
+  @ValidateNested({ each: true })
+  @Type(() => PhotoDto)
+  photos: PhotoDto[];
 }

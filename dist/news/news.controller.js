@@ -73,7 +73,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], NewsController.prototype, "remove", null);
 exports.NewsController = NewsController = __decorate([
-    (0, common_1.Controller)('api/news'),
+    (0, common_1.Controller)('news'),
     __metadata("design:paramtypes", [news_service_1.NewsService])
 ], NewsController);
 //# sourceMappingURL=news.controller.js.map

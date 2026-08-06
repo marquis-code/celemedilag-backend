@@ -1,12 +1,16 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger } from '@nestjs/common';
+import { TransformInterceptor } from './common/interceptors/transform.interceptor';
+import mongoose from 'mongoose';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
   app.enableCors({
-    origin: '*', // Allow all origins for dev, restrict in prod
+    origin: (origin, callback) => {
+      callback(null, true);
+    },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
@@ -20,6 +24,24 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(process.env.PORT ?? 3001);
+  app.useGlobalInterceptors(new TransformInterceptor());
+
+  mongoose.connection.on('connected', () => {
+    Logger.log('🍃 Successfully connected to MongoDB database', 'Mongoose');
+  });
+  
+  // If it connected before this listener was attached (which it does in NestJS), log it immediately:
+  if (mongoose.connection.readyState === 1) {
+    Logger.log('🍃 Successfully connected to MongoDB database', 'Mongoose');
+  }
+  
+  mongoose.connection.on('error', (err) => {
+    Logger.error(`❌ MongoDB connection error: ${err}`, 'Mongoose');
+  });
+
+  const port = process.env.PORT ?? 3001;
+  await app.listen(port);
+  
+  Logger.log(`🚀 Application is running on: http://localhost:${port}/api`, 'Bootstrap');
 }
 bootstrap();

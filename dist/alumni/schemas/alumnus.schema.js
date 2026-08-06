@@ -17,6 +17,13 @@ let Alumnus = class Alumnus {
     profession;
     location;
     email;
+    phone;
+    linkedInProfile;
+    bio;
+    photoUrl;
+    currentCompany;
+    wasExco;
+    excoRole;
 };
 exports.Alumnus = Alumnus;
 __decorate([
@@ -24,21 +31,49 @@ __decorate([
     __metadata("design:type", String)
 ], Alumnus.prototype, "name", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Alumnus.prototype, "graduationYear", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Alumnus.prototype, "profession", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Alumnus.prototype, "location", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Alumnus.prototype, "email", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Alumnus.prototype, "phone", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Alumnus.prototype, "linkedInProfile", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Alumnus.prototype, "bio", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Alumnus.prototype, "photoUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Alumnus.prototype, "currentCompany", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ default: false }),
+    __metadata("design:type", Boolean)
+], Alumnus.prototype, "wasExco", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Alumnus.prototype, "excoRole", void 0);
 exports.Alumnus = Alumnus = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], Alumnus);

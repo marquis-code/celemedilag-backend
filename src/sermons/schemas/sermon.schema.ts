@@ -8,17 +8,35 @@ export class Sermon {
   @Prop({ required: true })
   title: string;
 
-  @Prop({ required: true, enum: ['Audio', 'Video', 'PDF'] })
+  @Prop()
   type: string;
 
-  @Prop({ required: true })
+  @Prop()
   preacher: string;
 
-  @Prop({ required: true })
+  @Prop()
   date: string;
 
-  @Prop({ required: true })
+  @Prop()
   fileUrl: string;
+
+  @Prop()
+  videoUrl: string;
+
+  @Prop()
+  duration: string;
+
+  @Prop()
+  series: string;
+
+  @Prop([String])
+  bibleVerses: string[];
+
+  @Prop()
+  summary: string;
+
+  @Prop()
+  coverImageUrl: string;
 }
 
 export const SermonSchema = SchemaFactory.createForClass(Sermon);

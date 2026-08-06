@@ -8,17 +8,38 @@ export class Alumnus {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ required: true })
+  @Prop()
   graduationYear: string;
 
-  @Prop({ required: true })
+  @Prop()
   profession: string;
 
-  @Prop({ required: true })
+  @Prop()
   location: string;
 
-  @Prop({ required: true })
+  @Prop()
   email: string;
+
+  @Prop()
+  phone: string;
+
+  @Prop()
+  linkedInProfile: string;
+
+  @Prop()
+  bio: string;
+
+  @Prop()
+  photoUrl: string;
+
+  @Prop()
+  currentCompany: string;
+
+  @Prop({ default: false })
+  wasExco: boolean;
+
+  @Prop()
+  excoRole: string;
 }
 
 export const AlumnusSchema = SchemaFactory.createForClass(Alumnus);

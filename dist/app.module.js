@@ -23,6 +23,8 @@ const auth_module_1 = require("./auth/auth.module");
 const config_1 = require("@nestjs/config");
 const websockets_module_1 = require("./websockets/websockets.module");
 const upload_module_1 = require("./upload/upload.module");
+const stats_module_1 = require("./stats/stats.module");
+const contact_module_1 = require("./contact/contact.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -50,6 +52,8 @@ exports.AppModule = AppModule = __decorate([
             gallery_module_1.GalleryModule,
             settings_module_1.SettingsModule,
             auth_module_1.AuthModule,
+            stats_module_1.StatsModule,
+            contact_module_1.ContactModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

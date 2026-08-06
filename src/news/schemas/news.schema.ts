@@ -8,17 +8,32 @@ export class News {
   @Prop({ required: true })
   title: string;
 
-  @Prop({ required: true })
+  @Prop()
   content: string;
 
-  @Prop({ required: true })
-  category: string; // e.g., 'Devotionals', 'Campus Life', 'Medical Missions'
-
-  @Prop({ required: true })
-  author: string;
+  @Prop()
+  summary: string;
 
   @Prop()
-  imageUrl: string;
+  category: string;
+
+  @Prop()
+  author: string;
+
+  @Prop([String])
+  tags: string[];
+
+  @Prop()
+  coverImageUrl: string;
+
+  @Prop([String])
+  galleryUrls: string[];
+
+  @Prop({ default: true })
+  isPublished: boolean;
+
+  @Prop()
+  publishedAt: Date;
 }
 
 export const NewsSchema = SchemaFactory.createForClass(News);

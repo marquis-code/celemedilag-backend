@@ -17,6 +17,12 @@ let Sermon = class Sermon {
     preacher;
     date;
     fileUrl;
+    videoUrl;
+    duration;
+    series;
+    bibleVerses;
+    summary;
+    coverImageUrl;
 };
 exports.Sermon = Sermon;
 __decorate([
@@ -24,21 +30,45 @@ __decorate([
     __metadata("design:type", String)
 ], Sermon.prototype, "title", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, enum: ['Audio', 'Video', 'PDF'] }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Sermon.prototype, "type", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Sermon.prototype, "preacher", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Sermon.prototype, "date", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Sermon.prototype, "fileUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Sermon.prototype, "videoUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Sermon.prototype, "duration", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Sermon.prototype, "series", void 0);
+__decorate([
+    (0, mongoose_1.Prop)([String]),
+    __metadata("design:type", Array)
+], Sermon.prototype, "bibleVerses", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Sermon.prototype, "summary", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Sermon.prototype, "coverImageUrl", void 0);
 exports.Sermon = Sermon = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], Sermon);

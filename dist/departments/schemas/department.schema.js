@@ -14,6 +14,14 @@ const mongoose_1 = require("@nestjs/mongoose");
 let Department = class Department {
     name;
     description;
+    hodName;
+    hodPhotoUrl;
+    meetingDays;
+    bannerImageUrl;
+    membersCount;
+    responsibilities;
+    contactEmail;
+    contactPhone;
 };
 exports.Department = Department;
 __decorate([
@@ -21,9 +29,41 @@ __decorate([
     __metadata("design:type", String)
 ], Department.prototype, "name", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Department.prototype, "description", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Department.prototype, "hodName", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Department.prototype, "hodPhotoUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Department.prototype, "meetingDays", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Department.prototype, "bannerImageUrl", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Number)
+], Department.prototype, "membersCount", void 0);
+__decorate([
+    (0, mongoose_1.Prop)([String]),
+    __metadata("design:type", Array)
+], Department.prototype, "responsibilities", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Department.prototype, "contactEmail", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Department.prototype, "contactPhone", void 0);
 exports.Department = Department = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], Department);

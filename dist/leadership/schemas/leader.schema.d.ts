@@ -4,7 +4,16 @@ export declare class Leader {
     name: string;
     position: string;
     tenure: string;
-    imageUrl?: string;
+    avatar: string;
+    bio: string;
+    department: string;
+    email: string;
+    phone: string;
+    socialLinks: {
+        twitter: string;
+        linkedin: string;
+        instagram: string;
+    };
 }
 export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mongoose").Model<Leader, any, any, any, any, any, Leader>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Leader, Document<unknown, {}, Leader, {
     id: string;
@@ -42,7 +51,56 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
         id: string;
     }>> | undefined;
-    imageUrl?: import("mongoose").SchemaDefinitionProperty<string | undefined, Leader, Document<unknown, {}, Leader, {
+    avatar?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    bio?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    department?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    email?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    phone?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    socialLinks?: import("mongoose").SchemaDefinitionProperty<{
+        twitter: string;
+        linkedin: string;
+        instagram: string;
+    }, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
         _id: import("mongoose").Types.ObjectId;

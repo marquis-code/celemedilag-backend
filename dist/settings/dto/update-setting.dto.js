@@ -12,18 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateSettingDto = void 0;
 const class_validator_1 = require("class-validator");
 class UpdateSettingDto {
-    key;
     value;
 }
 exports.UpdateSettingDto = UpdateSettingDto;
 __decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], UpdateSettingDto.prototype, "key", void 0);
-__decorate([
-    (0, class_validator_1.IsObject)(),
-    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsDefined)(),
     __metadata("design:type", Object)
 ], UpdateSettingDto.prototype, "value", void 0);
 //# sourceMappingURL=update-setting.dto.js.map

@@ -15,7 +15,12 @@ let Leader = class Leader {
     name;
     position;
     tenure;
-    imageUrl;
+    avatar;
+    bio;
+    department;
+    email;
+    phone;
+    socialLinks;
 };
 exports.Leader = Leader;
 __decorate([
@@ -27,13 +32,33 @@ __decorate([
     __metadata("design:type", String)
 ], Leader.prototype, "position", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Leader.prototype, "tenure", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: false }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], Leader.prototype, "imageUrl", void 0);
+], Leader.prototype, "avatar", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Leader.prototype, "bio", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Leader.prototype, "department", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Leader.prototype, "email", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Leader.prototype, "phone", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: { twitter: String, linkedin: String, instagram: String } }),
+    __metadata("design:type", Object)
+], Leader.prototype, "socialLinks", void 0);
 exports.Leader = Leader = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], Leader);
