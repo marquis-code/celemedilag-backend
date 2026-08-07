@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContactSchema = exports.Contact = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 let Contact = class Contact {
-    fullName;
+    name;
     email;
     subject;
     message;
@@ -21,7 +21,7 @@ exports.Contact = Contact;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], Contact.prototype, "fullName", void 0);
+], Contact.prototype, "name", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)

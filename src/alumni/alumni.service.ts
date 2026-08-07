@@ -20,11 +20,11 @@ export class AlumniService {
   }
 
   async findAll(): Promise<Alumnus[]> {
-    return this.alumnusModel.find().sort({ createdAt: -1 }).exec();
+    return this.alumnusModel.find().sort({ createdAt: -1 }).lean().exec();
   }
 
   async findOne(id: string): Promise<Alumnus> {
-    const alumnus = await this.alumnusModel.findById(id).exec();
+    const alumnus = await this.alumnusModel.findById(id).lean().exec();
     if (!alumnus) {
       throw new NotFoundException(`Alumnus #${id} not found`);
     }

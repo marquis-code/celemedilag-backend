@@ -6,7 +6,7 @@ export type ContactDocument = Contact & Document;
 @Schema({ timestamps: true })
 export class Contact {
   @Prop({ required: true })
-  fullName: string;
+  name: string;
 
   @Prop({ required: true })
   email: string;

@@ -22,6 +22,6 @@ export class ContactService {
   }
 
   async findAll(): Promise<Contact[]> {
-    return this.contactModel.find().sort({ createdAt: -1 }).exec();
+    return this.contactModel.find().sort({ createdAt: -1 }).lean().exec();
   }
 }

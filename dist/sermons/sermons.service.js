@@ -32,10 +32,10 @@ let SermonsService = class SermonsService {
         return saved;
     }
     async findAll() {
-        return this.sermonModel.find().sort({ createdAt: -1 }).exec();
+        return this.sermonModel.find().sort({ createdAt: -1 }).lean().exec();
     }
     async findOne(id) {
-        const sermon = await this.sermonModel.findById(id).exec();
+        const sermon = await this.sermonModel.findById(id).lean().exec();
         if (!sermon) {
             throw new common_1.NotFoundException(`Sermon #${id} not found`);
         }

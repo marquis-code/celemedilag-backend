@@ -32,10 +32,10 @@ let DepartmentsService = class DepartmentsService {
         return saved;
     }
     async findAll() {
-        return this.departmentModel.find().sort({ createdAt: -1 }).exec();
+        return this.departmentModel.find().sort({ createdAt: -1 }).lean().exec();
     }
     async findOne(id) {
-        const department = await this.departmentModel.findById(id).exec();
+        const department = await this.departmentModel.findById(id).lean().exec();
         if (!department) {
             throw new common_1.NotFoundException(`Department #${id} not found`);
         }

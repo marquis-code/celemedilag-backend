@@ -32,10 +32,10 @@ let GalleryService = class GalleryService {
         return saved;
     }
     async findAll() {
-        return this.albumModel.find().sort({ createdAt: -1 }).exec();
+        return this.albumModel.find().sort({ createdAt: -1 }).lean().exec();
     }
     async findOne(id) {
-        const album = await this.albumModel.findById(id).exec();
+        const album = await this.albumModel.findById(id).lean().exec();
         if (!album) {
             throw new common_1.NotFoundException(`Album #${id} not found`);
         }

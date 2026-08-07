@@ -20,11 +20,11 @@ export class GalleryService {
   }
 
   async findAll(): Promise<Album[]> {
-    return this.albumModel.find().sort({ createdAt: -1 }).exec();
+    return this.albumModel.find().sort({ createdAt: -1 }).lean().exec();
   }
 
   async findOne(id: string): Promise<Album> {
-    const album = await this.albumModel.findById(id).exec();
+    const album = await this.albumModel.findById(id).lean().exec();
     if (!album) {
       throw new NotFoundException(`Album #${id} not found`);
     }

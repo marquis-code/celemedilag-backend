@@ -32,10 +32,10 @@ let NewsService = class NewsService {
         return saved;
     }
     async findAll() {
-        return this.newsModel.find().sort({ createdAt: -1 }).exec();
+        return this.newsModel.find().sort({ createdAt: -1 }).lean().exec();
     }
     async findOne(id) {
-        const news = await this.newsModel.findById(id).exec();
+        const news = await this.newsModel.findById(id).lean().exec();
         if (!news)
             throw new common_1.NotFoundException('News article not found');
         return news;

@@ -20,11 +20,11 @@ export class DepartmentsService {
   }
 
   async findAll(): Promise<Department[]> {
-    return this.departmentModel.find().sort({ createdAt: -1 }).exec();
+    return this.departmentModel.find().sort({ createdAt: -1 }).lean().exec();
   }
 
   async findOne(id: string): Promise<Department> {
-    const department = await this.departmentModel.findById(id).exec();
+    const department = await this.departmentModel.findById(id).lean().exec();
     if (!department) {
       throw new NotFoundException(`Department #${id} not found`);
     }

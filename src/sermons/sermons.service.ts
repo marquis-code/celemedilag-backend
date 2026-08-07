@@ -20,11 +20,11 @@ export class SermonsService {
   }
 
   async findAll(): Promise<Sermon[]> {
-    return this.sermonModel.find().sort({ createdAt: -1 }).exec();
+    return this.sermonModel.find().sort({ createdAt: -1 }).lean().exec();
   }
 
   async findOne(id: string): Promise<Sermon> {
-    const sermon = await this.sermonModel.findById(id).exec();
+    const sermon = await this.sermonModel.findById(id).lean().exec();
     if (!sermon) {
       throw new NotFoundException(`Sermon #${id} not found`);
     }

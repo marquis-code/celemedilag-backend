@@ -32,10 +32,10 @@ let AlumniService = class AlumniService {
         return saved;
     }
     async findAll() {
-        return this.alumnusModel.find().sort({ createdAt: -1 }).exec();
+        return this.alumnusModel.find().sort({ createdAt: -1 }).lean().exec();
     }
     async findOne(id) {
-        const alumnus = await this.alumnusModel.findById(id).exec();
+        const alumnus = await this.alumnusModel.findById(id).lean().exec();
         if (!alumnus) {
             throw new common_1.NotFoundException(`Alumnus #${id} not found`);
         }

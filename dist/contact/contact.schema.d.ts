@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 export type ContactDocument = Contact & Document;
 export declare class Contact {
-    fullName: string;
+    name: string;
     email: string;
     subject: string;
     message: string;
@@ -15,7 +15,7 @@ export declare const ContactSchema: import("mongoose").Schema<Contact, import("m
 }, "id"> & import("mongoose").HydratedDocumentOverrides<{
     id: string;
 }>, {
-    fullName?: import("mongoose").SchemaDefinitionProperty<string, Contact, Document<unknown, {}, Contact, {
+    name?: import("mongoose").SchemaDefinitionProperty<string, Contact, Document<unknown, {}, Contact, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Contact & {
         _id: import("mongoose").Types.ObjectId;

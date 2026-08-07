@@ -2,7 +2,9 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe, Logger } from '@nestjs/common';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
+import { HttpCacheInterceptor } from './common/interceptors/http-cache.interceptor';
 import mongoose from 'mongoose';
+import compression from 'compression';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -24,7 +26,12 @@ async function bootstrap() {
     }),
   );
 
-  app.useGlobalInterceptors(new TransformInterceptor());
+  app.use(compression());
+
+  app.useGlobalInterceptors(
+    new HttpCacheInterceptor(),
+    new TransformInterceptor(),
+  );
 
   mongoose.connection.on('connected', () => {
     Logger.log('🍃 Successfully connected to MongoDB database', 'Mongoose');

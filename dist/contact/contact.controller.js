@@ -49,7 +49,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ContactController.prototype, "findAll", null);
 exports.ContactController = ContactController = __decorate([
-    (0, common_1.Controller)('contact'),
+    (0, common_1.Controller)('contacts'),
     __metadata("design:paramtypes", [contact_service_1.ContactService])
 ], ContactController);
 //# sourceMappingURL=contact.controller.js.map

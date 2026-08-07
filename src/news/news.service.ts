@@ -19,11 +19,11 @@ export class NewsService {
   }
 
   async findAll(): Promise<News[]> {
-    return this.newsModel.find().sort({ createdAt: -1 }).exec();
+    return this.newsModel.find().sort({ createdAt: -1 }).lean().exec();
   }
 
   async findOne(id: string): Promise<News> {
-    const news = await this.newsModel.findById(id).exec();
+    const news = await this.newsModel.findById(id).lean().exec();
     if (!news) throw new NotFoundException('News article not found');
     return news;
   }

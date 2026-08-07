@@ -26,14 +26,14 @@ let SettingsService = class SettingsService {
         this.updatesGateway = updatesGateway;
     }
     async getSetting(key) {
-        const setting = await this.settingModel.findOne({ key }).exec();
+        const setting = await this.settingModel.findOne({ key }).lean().exec();
         if (!setting) {
             throw new common_1.NotFoundException(`Setting with key ${key} not found`);
         }
         return setting;
     }
     async getAllSettings() {
-        return this.settingModel.find().exec();
+        return this.settingModel.find().lean().exec();
     }
     async updateSetting(key, updateSettingDto) {
         const setting = await this.settingModel.findOneAndUpdate({ key }, { value: updateSettingDto.value }, { new: true, upsert: true }).exec();

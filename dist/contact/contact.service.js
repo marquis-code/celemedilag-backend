@@ -32,7 +32,7 @@ let ContactService = class ContactService {
         return saved;
     }
     async findAll() {
-        return this.contactModel.find().sort({ createdAt: -1 }).exec();
+        return this.contactModel.find().sort({ createdAt: -1 }).lean().exec();
     }
 };
 exports.ContactService = ContactService;

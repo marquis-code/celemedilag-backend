@@ -7,7 +7,9 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const common_1 = require("@nestjs/common");
 const transform_interceptor_1 = require("./common/interceptors/transform.interceptor");
+const http_cache_interceptor_1 = require("./common/interceptors/http-cache.interceptor");
 const mongoose_1 = __importDefault(require("mongoose"));
+const compression_1 = __importDefault(require("compression"));
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.enableCors({
@@ -22,7 +24,8 @@ async function bootstrap() {
         whitelist: true,
         transform: true,
     }));
-    app.useGlobalInterceptors(new transform_interceptor_1.TransformInterceptor());
+    app.use((0, compression_1.default)());
+    app.useGlobalInterceptors(new http_cache_interceptor_1.HttpCacheInterceptor(), new transform_interceptor_1.TransformInterceptor());
     mongoose_1.default.connection.on('connected', () => {
         common_1.Logger.log('🍃 Successfully connected to MongoDB database', 'Mongoose');
     });

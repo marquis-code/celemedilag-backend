@@ -32,10 +32,10 @@ let EventsService = class EventsService {
         return saved;
     }
     async findAll() {
-        return this.eventModel.find().sort({ date: 1 }).exec();
+        return this.eventModel.find().sort({ date: 1 }).lean().exec();
     }
     async findOne(id) {
-        const event = await this.eventModel.findById(id).exec();
+        const event = await this.eventModel.findById(id).lean().exec();
         if (!event)
             throw new common_1.NotFoundException('Event not found');
         return event;

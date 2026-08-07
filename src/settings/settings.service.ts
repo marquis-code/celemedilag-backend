@@ -13,7 +13,7 @@ export class SettingsService {
   ) {}
 
   async getSetting(key: string): Promise<Setting> {
-    const setting = await this.settingModel.findOne({ key }).exec();
+    const setting = await this.settingModel.findOne({ key }).lean().exec();
     if (!setting) {
       throw new NotFoundException(`Setting with key ${key} not found`);
     }
@@ -21,7 +21,7 @@ export class SettingsService {
   }
 
   async getAllSettings(): Promise<Setting[]> {
-    return this.settingModel.find().exec();
+    return this.settingModel.find().lean().exec();
   }
 
   async updateSetting(key: string, updateSettingDto: UpdateSettingDto): Promise<Setting> {

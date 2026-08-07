@@ -19,11 +19,11 @@ export class EventsService {
   }
 
   async findAll(): Promise<Event[]> {
-    return this.eventModel.find().sort({ date: 1 }).exec();
+    return this.eventModel.find().sort({ date: 1 }).lean().exec();
   }
 
   async findOne(id: string): Promise<Event> {
-    const event = await this.eventModel.findById(id).exec();
+    const event = await this.eventModel.findById(id).lean().exec();
     if (!event) throw new NotFoundException('Event not found');
     return event;
   }

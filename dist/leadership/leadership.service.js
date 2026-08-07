@@ -32,10 +32,10 @@ let LeadershipService = class LeadershipService {
         return saved;
     }
     async findAll() {
-        return this.leaderModel.find().sort({ createdAt: -1 }).exec();
+        return this.leaderModel.find().sort({ createdAt: -1 }).lean().exec();
     }
     async findOne(id) {
-        const leader = await this.leaderModel.findById(id).exec();
+        const leader = await this.leaderModel.findById(id).lean().exec();
         if (!leader) {
             throw new common_1.NotFoundException(`Leader #${id} not found`);
         }
