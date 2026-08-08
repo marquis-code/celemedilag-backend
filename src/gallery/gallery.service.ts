@@ -31,6 +31,13 @@ export class GalleryService {
     return album;
   }
 
+  async update(id: string, updateAlbumDto: CreateAlbumDto): Promise<Album> {
+    const album = await this.albumModel.findByIdAndUpdate(id, updateAlbumDto, { new: true }).exec();
+    if (!album) throw new NotFoundException(`Album #${id} not found`);
+    this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'gallery', action: 'update', data: album });
+    return album;
+  }
+
   async remove(id: string): Promise<Album> {
     const deletedAlbum = await this.albumModel.findByIdAndDelete(id).exec();
     if (!deletedAlbum) {

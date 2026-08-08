@@ -31,6 +31,13 @@ export class LeadershipService {
     return leader;
   }
 
+  async update(id: string, updateLeaderDto: CreateLeaderDto): Promise<Leader> {
+    const leader = await this.leaderModel.findByIdAndUpdate(id, updateLeaderDto, { new: true }).exec();
+    if (!leader) throw new NotFoundException(`Leader #${id} not found`);
+    this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'leadership', action: 'update', data: leader });
+    return leader;
+  }
+
   async remove(id: string): Promise<Leader> {
     const deletedLeader = await this.leaderModel.findByIdAndDelete(id).exec();
     if (!deletedLeader) {

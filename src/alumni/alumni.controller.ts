@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { AlumniService } from './alumni.service';
 import { CreateAlumnusDto } from './dto/create-alumnus.dto';
 
@@ -19,6 +19,11 @@ export class AlumniController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.alumniService.findOne(id);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateAlumnusDto: CreateAlumnusDto) {
+    return this.alumniService.update(id, updateAlumnusDto);
   }
 
   @Delete(':id')

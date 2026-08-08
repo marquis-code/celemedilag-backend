@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { LeadershipService } from './leadership.service';
 import { CreateLeaderDto } from './dto/create-leader.dto';
 
@@ -19,6 +19,11 @@ export class LeadershipController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.leadershipService.findOne(id);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateLeaderDto: CreateLeaderDto) {
+    return this.leadershipService.update(id, updateLeaderDto);
   }
 
   @Delete(':id')

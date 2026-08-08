@@ -31,6 +31,13 @@ export class AlumniService {
     return alumnus;
   }
 
+  async update(id: string, updateAlumnusDto: CreateAlumnusDto): Promise<Alumnus> {
+    const alumnus = await this.alumnusModel.findByIdAndUpdate(id, updateAlumnusDto, { new: true }).exec();
+    if (!alumnus) throw new NotFoundException(`Alumnus #${id} not found`);
+    this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'alumni', action: 'update', data: alumnus });
+    return alumnus;
+  }
+
   async remove(id: string): Promise<Alumnus> {
     const deletedAlumnus = await this.alumnusModel.findByIdAndDelete(id).exec();
     if (!deletedAlumnus) {

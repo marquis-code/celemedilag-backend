@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { SermonsService } from './sermons.service';
 import { CreateSermonDto } from './dto/create-sermon.dto';
 
@@ -19,6 +19,11 @@ export class SermonsController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.sermonsService.findOne(id);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateSermonDto: CreateSermonDto) {
+    return this.sermonsService.update(id, updateSermonDto);
   }
 
   @Delete(':id')

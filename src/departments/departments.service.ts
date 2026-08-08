@@ -31,6 +31,13 @@ export class DepartmentsService {
     return department;
   }
 
+  async update(id: string, updateDepartmentDto: CreateDepartmentDto): Promise<Department> {
+    const department = await this.departmentModel.findByIdAndUpdate(id, updateDepartmentDto, { new: true }).exec();
+    if (!department) throw new NotFoundException(`Department #${id} not found`);
+    this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'departments', action: 'update', data: department });
+    return department;
+  }
+
   async remove(id: string): Promise<Department> {
     const deletedDepartment = await this.departmentModel.findByIdAndDelete(id).exec();
     if (!deletedDepartment) {

@@ -31,6 +31,13 @@ export class SermonsService {
     return sermon;
   }
 
+  async update(id: string, updateSermonDto: CreateSermonDto): Promise<Sermon> {
+    const sermon = await this.sermonModel.findByIdAndUpdate(id, updateSermonDto, { new: true }).exec();
+    if (!sermon) throw new NotFoundException(`Sermon #${id} not found`);
+    this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'sermons', action: 'update', data: sermon });
+    return sermon;
+  }
+
   async remove(id: string): Promise<Sermon> {
     const deletedSermon = await this.sermonModel.findByIdAndDelete(id).exec();
     if (!deletedSermon) {
