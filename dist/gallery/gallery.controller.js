@@ -30,6 +30,9 @@ let GalleryController = class GalleryController {
     findOne(id) {
         return this.galleryService.findOne(id);
     }
+    update(id, updateAlbumDto) {
+        return this.galleryService.update(id, updateAlbumDto);
+    }
     remove(id) {
         return this.galleryService.remove(id);
     }
@@ -55,6 +58,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], GalleryController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, create_album_dto_1.CreateAlbumDto]),
+    __metadata("design:returntype", void 0)
+], GalleryController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),

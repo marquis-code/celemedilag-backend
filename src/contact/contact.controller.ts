@@ -7,18 +7,11 @@ export class ContactController {
 
   @Post()
   async create(@Body() createContactDto: any) {
-    const contact = await this.contactService.create(createContactDto);
-    return {
-      message: 'Message sent successfully',
-      data: contact,
-    };
+    return this.contactService.create(createContactDto);
   }
 
   @Get()
   async findAll() {
-    const contacts = await this.contactService.findAll();
-    return {
-      data: contacts,
-    };
+    return this.contactService.findAll();
   }
 }

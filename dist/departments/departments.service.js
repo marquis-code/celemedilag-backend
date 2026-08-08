@@ -41,6 +41,13 @@ let DepartmentsService = class DepartmentsService {
         }
         return department;
     }
+    async update(id, updateDepartmentDto) {
+        const department = await this.departmentModel.findByIdAndUpdate(id, updateDepartmentDto, { new: true }).exec();
+        if (!department)
+            throw new common_1.NotFoundException(`Department #${id} not found`);
+        this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'departments', action: 'update', data: department });
+        return department;
+    }
     async remove(id) {
         const deletedDepartment = await this.departmentModel.findByIdAndDelete(id).exec();
         if (!deletedDepartment) {

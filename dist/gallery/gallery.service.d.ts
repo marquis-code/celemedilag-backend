@@ -9,5 +9,6 @@ export declare class GalleryService {
     create(createAlbumDto: CreateAlbumDto): Promise<Album>;
     findAll(): Promise<Album[]>;
     findOne(id: string): Promise<Album>;
+    update(id: string, updateAlbumDto: CreateAlbumDto): Promise<Album>;
     remove(id: string): Promise<Album>;
 }

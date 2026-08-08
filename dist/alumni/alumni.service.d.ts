@@ -9,5 +9,6 @@ export declare class AlumniService {
     create(createAlumnusDto: CreateAlumnusDto): Promise<Alumnus>;
     findAll(): Promise<Alumnus[]>;
     findOne(id: string): Promise<Alumnus>;
+    update(id: string, updateAlumnusDto: CreateAlumnusDto): Promise<Alumnus>;
     remove(id: string): Promise<Alumnus>;
 }

@@ -9,5 +9,6 @@ export declare class LeadershipService {
     create(createLeaderDto: CreateLeaderDto): Promise<Leader>;
     findAll(): Promise<Leader[]>;
     findOne(id: string): Promise<Leader>;
+    update(id: string, updateLeaderDto: CreateLeaderDto): Promise<Leader>;
     remove(id: string): Promise<Leader>;
 }

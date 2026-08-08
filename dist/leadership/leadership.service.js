@@ -41,6 +41,13 @@ let LeadershipService = class LeadershipService {
         }
         return leader;
     }
+    async update(id, updateLeaderDto) {
+        const leader = await this.leaderModel.findByIdAndUpdate(id, updateLeaderDto, { new: true }).exec();
+        if (!leader)
+            throw new common_1.NotFoundException(`Leader #${id} not found`);
+        this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'leadership', action: 'update', data: leader });
+        return leader;
+    }
     async remove(id) {
         const deletedLeader = await this.leaderModel.findByIdAndDelete(id).exec();
         if (!deletedLeader) {

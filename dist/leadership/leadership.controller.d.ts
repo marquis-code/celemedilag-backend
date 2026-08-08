@@ -6,5 +6,6 @@ export declare class LeadershipController {
     create(createLeaderDto: CreateLeaderDto): Promise<import("./schemas/leader.schema").Leader>;
     findAll(): Promise<import("./schemas/leader.schema").Leader[]>;
     findOne(id: string): Promise<import("./schemas/leader.schema").Leader>;
+    update(id: string, updateLeaderDto: CreateLeaderDto): Promise<import("./schemas/leader.schema").Leader>;
     remove(id: string): Promise<import("./schemas/leader.schema").Leader>;
 }

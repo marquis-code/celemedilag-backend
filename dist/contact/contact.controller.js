@@ -21,17 +21,10 @@ let ContactController = class ContactController {
         this.contactService = contactService;
     }
     async create(createContactDto) {
-        const contact = await this.contactService.create(createContactDto);
-        return {
-            message: 'Message sent successfully',
-            data: contact,
-        };
+        return this.contactService.create(createContactDto);
     }
     async findAll() {
-        const contacts = await this.contactService.findAll();
-        return {
-            data: contacts,
-        };
+        return this.contactService.findAll();
     }
 };
 exports.ContactController = ContactController;

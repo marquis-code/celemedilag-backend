@@ -30,6 +30,9 @@ let SermonsController = class SermonsController {
     findOne(id) {
         return this.sermonsService.findOne(id);
     }
+    update(id, updateSermonDto) {
+        return this.sermonsService.update(id, updateSermonDto);
+    }
     remove(id) {
         return this.sermonsService.remove(id);
     }
@@ -55,6 +58,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], SermonsController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, create_sermon_dto_1.CreateSermonDto]),
+    __metadata("design:returntype", void 0)
+], SermonsController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),

@@ -31,6 +31,31 @@ let UploadController = class UploadController {
             publicId: result.public_id,
         };
     }
+    async uploadBulk(files) {
+        if (!files || files.length === 0) {
+            throw new common_1.BadRequestException('No files provided');
+        }
+        const results = await Promise.allSettled(files.map((file) => this.cloudinaryService.uploadFile(file)));
+        const uploaded = [];
+        const failed = [];
+        results.forEach((result, index) => {
+            const originalName = files[index].originalname;
+            if (result.status === 'fulfilled') {
+                uploaded.push({
+                    url: result.value.secure_url,
+                    publicId: result.value.public_id,
+                    originalName,
+                });
+            }
+            else {
+                failed.push({
+                    originalName,
+                    error: result.reason?.message || 'Upload failed',
+                });
+            }
+        });
+        return { uploaded, failed, total: files.length, successCount: uploaded.length, failedCount: failed.length };
+    }
 };
 exports.UploadController = UploadController;
 __decorate([
@@ -41,6 +66,14 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], UploadController.prototype, "uploadImage", null);
+__decorate([
+    (0, common_1.Post)('bulk'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FilesInterceptor)('files', 50)),
+    __param(0, (0, common_1.UploadedFiles)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array]),
+    __metadata("design:returntype", Promise)
+], UploadController.prototype, "uploadBulk", null);
 exports.UploadController = UploadController = __decorate([
     (0, common_1.Controller)('upload'),
     __metadata("design:paramtypes", [cloudinary_service_1.CloudinaryService])

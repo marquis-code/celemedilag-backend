@@ -6,5 +6,6 @@ export declare class SermonsController {
     create(createSermonDto: CreateSermonDto): Promise<import("./schemas/sermon.schema").Sermon>;
     findAll(): Promise<import("./schemas/sermon.schema").Sermon[]>;
     findOne(id: string): Promise<import("./schemas/sermon.schema").Sermon>;
+    update(id: string, updateSermonDto: CreateSermonDto): Promise<import("./schemas/sermon.schema").Sermon>;
     remove(id: string): Promise<import("./schemas/sermon.schema").Sermon>;
 }

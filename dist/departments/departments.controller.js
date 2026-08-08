@@ -30,6 +30,9 @@ let DepartmentsController = class DepartmentsController {
     findOne(id) {
         return this.departmentsService.findOne(id);
     }
+    update(id, updateDepartmentDto) {
+        return this.departmentsService.update(id, updateDepartmentDto);
+    }
     remove(id) {
         return this.departmentsService.remove(id);
     }
@@ -55,6 +58,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], DepartmentsController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, create_department_dto_1.CreateDepartmentDto]),
+    __metadata("design:returntype", void 0)
+], DepartmentsController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),

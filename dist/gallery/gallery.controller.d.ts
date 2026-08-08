@@ -6,5 +6,6 @@ export declare class GalleryController {
     create(createAlbumDto: CreateAlbumDto): Promise<import("./schemas/album.schema").Album>;
     findAll(): Promise<import("./schemas/album.schema").Album[]>;
     findOne(id: string): Promise<import("./schemas/album.schema").Album>;
+    update(id: string, updateAlbumDto: CreateAlbumDto): Promise<import("./schemas/album.schema").Album>;
     remove(id: string): Promise<import("./schemas/album.schema").Album>;
 }

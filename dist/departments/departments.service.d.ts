@@ -9,5 +9,6 @@ export declare class DepartmentsService {
     create(createDepartmentDto: CreateDepartmentDto): Promise<Department>;
     findAll(): Promise<Department[]>;
     findOne(id: string): Promise<Department>;
+    update(id: string, updateDepartmentDto: CreateDepartmentDto): Promise<Department>;
     remove(id: string): Promise<Department>;
 }

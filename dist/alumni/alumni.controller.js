@@ -30,6 +30,9 @@ let AlumniController = class AlumniController {
     findOne(id) {
         return this.alumniService.findOne(id);
     }
+    update(id, updateAlumnusDto) {
+        return this.alumniService.update(id, updateAlumnusDto);
+    }
     remove(id) {
         return this.alumniService.remove(id);
     }
@@ -55,6 +58,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AlumniController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, create_alumnus_dto_1.CreateAlumnusDto]),
+    __metadata("design:returntype", void 0)
+], AlumniController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),

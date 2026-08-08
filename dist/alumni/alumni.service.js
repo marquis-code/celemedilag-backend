@@ -41,6 +41,13 @@ let AlumniService = class AlumniService {
         }
         return alumnus;
     }
+    async update(id, updateAlumnusDto) {
+        const alumnus = await this.alumnusModel.findByIdAndUpdate(id, updateAlumnusDto, { new: true }).exec();
+        if (!alumnus)
+            throw new common_1.NotFoundException(`Alumnus #${id} not found`);
+        this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'alumni', action: 'update', data: alumnus });
+        return alumnus;
+    }
     async remove(id) {
         const deletedAlumnus = await this.alumnusModel.findByIdAndDelete(id).exec();
         if (!deletedAlumnus) {
