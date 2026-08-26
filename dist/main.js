@@ -10,6 +10,7 @@ const transform_interceptor_1 = require("./common/interceptors/transform.interce
 const http_cache_interceptor_1 = require("./common/interceptors/http-cache.interceptor");
 const mongoose_1 = __importDefault(require("mongoose"));
 const compression_1 = __importDefault(require("compression"));
+const express_1 = require("express");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.enableCors({
@@ -25,6 +26,8 @@ async function bootstrap() {
         transform: true,
     }));
     app.use((0, compression_1.default)());
+    app.use((0, express_1.json)({ limit: '50mb' }));
+    app.use((0, express_1.urlencoded)({ extended: true, limit: '50mb' }));
     app.useGlobalInterceptors(new http_cache_interceptor_1.HttpCacheInterceptor(), new transform_interceptor_1.TransformInterceptor());
     mongoose_1.default.connection.on('connected', () => {
         common_1.Logger.log('🍃 Successfully connected to MongoDB database', 'Mongoose');

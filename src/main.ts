@@ -5,6 +5,7 @@ import { TransformInterceptor } from './common/interceptors/transform.intercepto
 import { HttpCacheInterceptor } from './common/interceptors/http-cache.interceptor';
 import mongoose from 'mongoose';
 import compression from 'compression';
+import { json, urlencoded } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -27,6 +28,8 @@ async function bootstrap() {
   );
 
   app.use(compression());
+  app.use(json({ limit: '50mb' }));
+  app.use(urlencoded({ extended: true, limit: '50mb' }));
 
   app.useGlobalInterceptors(
     new HttpCacheInterceptor(),

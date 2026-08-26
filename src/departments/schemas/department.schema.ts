@@ -9,6 +9,9 @@ export class Department {
   name: string;
 
   @Prop()
+  category: string;
+
+  @Prop()
   description: string;
 
   @Prop()

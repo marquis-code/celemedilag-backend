@@ -17,6 +17,7 @@ import { WebsocketsModule } from './websockets/websockets.module';
 import { UploadModule } from './upload/upload.module';
 import { StatsModule } from './stats/stats.module';
 import { ContactModule } from './contact/contact.module';
+import { PatronsModule } from './patrons/patrons.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { ContactModule } from './contact/contact.module';
     AuthModule,
     StatsModule,
     ContactModule,
+    PatronsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

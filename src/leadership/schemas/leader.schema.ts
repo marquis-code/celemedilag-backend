@@ -14,6 +14,12 @@ export class Leader {
   @Prop()
   tenure: string;
 
+  @Prop({ default: false })
+  isPastExco: boolean;
+
+  @Prop()
+  session: string;
+
   @Prop()
   avatar: string;
 
@@ -28,6 +34,9 @@ export class Leader {
 
   @Prop()
   phone: string;
+
+  @Prop({ default: 99 })
+  order: number;
 
   @Prop({ type: { twitter: String, linkedin: String, instagram: String } })
   socialLinks: { twitter: string; linkedin: string; instagram: string };

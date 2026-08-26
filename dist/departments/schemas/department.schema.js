@@ -13,6 +13,7 @@ exports.DepartmentSchema = exports.Department = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 let Department = class Department {
     name;
+    category;
     description;
     hodName;
     hodPhotoUrl;
@@ -28,6 +29,10 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
 ], Department.prototype, "name", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Department.prototype, "category", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)

@@ -25,6 +25,7 @@ const websockets_module_1 = require("./websockets/websockets.module");
 const upload_module_1 = require("./upload/upload.module");
 const stats_module_1 = require("./stats/stats.module");
 const contact_module_1 = require("./contact/contact.module");
+const patrons_module_1 = require("./patrons/patrons.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -54,6 +55,7 @@ exports.AppModule = AppModule = __decorate([
             auth_module_1.AuthModule,
             stats_module_1.StatsModule,
             contact_module_1.ContactModule,
+            patrons_module_1.PatronsModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

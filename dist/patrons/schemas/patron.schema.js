@@ -9,73 +9,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LeaderSchema = exports.Leader = void 0;
+exports.PatronSchema = exports.Patron = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-let Leader = class Leader {
+let Patron = class Patron {
     name;
-    position;
-    tenure;
-    isPastExco;
-    session;
+    role;
+    type;
     avatar;
-    bio;
-    department;
     email;
     phone;
+    bio;
+    isActive;
     order;
-    socialLinks;
 };
-exports.Leader = Leader;
+exports.Patron = Patron;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], Leader.prototype, "name", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ required: true }),
-    __metadata("design:type", String)
-], Leader.prototype, "position", void 0);
+], Patron.prototype, "name", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], Leader.prototype, "tenure", void 0);
+], Patron.prototype, "role", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ default: false }),
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Patron.prototype, "type", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Patron.prototype, "avatar", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Patron.prototype, "email", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Patron.prototype, "phone", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Patron.prototype, "bio", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ default: true }),
     __metadata("design:type", Boolean)
-], Leader.prototype, "isPastExco", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Leader.prototype, "session", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Leader.prototype, "avatar", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Leader.prototype, "bio", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Leader.prototype, "department", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Leader.prototype, "email", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Leader.prototype, "phone", void 0);
+], Patron.prototype, "isActive", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ default: 99 }),
     __metadata("design:type", Number)
-], Leader.prototype, "order", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: { twitter: String, linkedin: String, instagram: String } }),
-    __metadata("design:type", Object)
-], Leader.prototype, "socialLinks", void 0);
-exports.Leader = Leader = __decorate([
+], Patron.prototype, "order", void 0);
+exports.Patron = Patron = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
-], Leader);
-exports.LeaderSchema = mongoose_1.SchemaFactory.createForClass(Leader);
-//# sourceMappingURL=leader.schema.js.map
+], Patron);
+exports.PatronSchema = mongoose_1.SchemaFactory.createForClass(Patron);
+//# sourceMappingURL=patron.schema.js.map

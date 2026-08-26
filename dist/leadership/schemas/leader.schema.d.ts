@@ -4,11 +4,14 @@ export declare class Leader {
     name: string;
     position: string;
     tenure: string;
+    isPastExco: boolean;
+    session: string;
     avatar: string;
     bio: string;
     department: string;
     email: string;
     phone: string;
+    order: number;
     socialLinks: {
         twitter: string;
         linkedin: string;
@@ -43,6 +46,24 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
         id: string;
     }>> | undefined;
     tenure?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    isPastExco?: import("mongoose").SchemaDefinitionProperty<boolean, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    session?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
         _id: import("mongoose").Types.ObjectId;
@@ -88,6 +109,15 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
         id: string;
     }>> | undefined;
     phone?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    order?: import("mongoose").SchemaDefinitionProperty<number, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
         _id: import("mongoose").Types.ObjectId;

@@ -1,25 +1,17 @@
 import { IsNotEmpty, IsOptional, IsString, IsUrl, IsBoolean } from 'class-validator';
 
-export class CreateLeaderDto {
+export class CreatePatronDto {
   @IsString()
   @IsNotEmpty()
   name: string;
 
   @IsString()
-  @IsNotEmpty()
-  position: string;
-
-  @IsString()
-  @IsNotEmpty()
-  tenure: string;
-
-  @IsBoolean()
   @IsOptional()
-  isPastExco?: boolean;
+  role?: string;
 
   @IsString()
   @IsOptional()
-  session?: string;
+  type?: string;
 
   @IsString()
   @IsOptional()
@@ -37,9 +29,10 @@ export class CreateLeaderDto {
   @IsOptional()
   bio?: string;
 
+  @IsBoolean()
   @IsOptional()
-  order?: number;
+  isActive?: boolean;
 
   @IsOptional()
-  socialLinks?: { twitter?: string; linkedin?: string; instagram?: string };
+  order?: number;
 }
