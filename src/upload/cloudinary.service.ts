@@ -10,6 +10,10 @@ export class CloudinaryService {
         {
           folder: 'celemedilag',
           resource_type: 'auto',
+          format: 'webp',
+          quality: 'auto:eco',
+          width: 1200,
+          crop: 'limit',
         },
         (error, result) => {
           if (error) return reject(error);

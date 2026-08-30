@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, IsOptional } from 'class-validator';
 
 export class CreateAlumnusDto {
   @IsString()
@@ -20,4 +20,7 @@ export class CreateAlumnusDto {
   @IsEmail()
   @IsNotEmpty()
   email: string;
+
+  @IsOptional()
+  socialLinks?: { twitter?: string; linkedin?: string; instagram?: string; facebook?: string; tiktok?: string; snapchat?: string };
 }

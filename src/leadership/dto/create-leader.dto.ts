@@ -40,6 +40,10 @@ export class CreateLeaderDto {
   @IsOptional()
   order?: number;
 
+  @IsString()
   @IsOptional()
-  socialLinks?: { twitter?: string; linkedin?: string; instagram?: string };
+  courseOfStudy?: string;
+
+  @IsOptional()
+  socialLinks?: { twitter?: string; linkedin?: string; instagram?: string; facebook?: string; tiktok?: string; snapchat?: string };
 }

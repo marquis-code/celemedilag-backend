@@ -16,7 +16,7 @@ export class PatronsService {
   }
 
   async findAll(): Promise<Patron[]> {
-    return this.patronModel.find().exec();
+    return this.patronModel.find().sort({ order: 1, createdAt: -1 }).exec();
   }
 
   async findOne(id: string): Promise<Patron> {

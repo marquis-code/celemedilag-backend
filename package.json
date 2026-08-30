@@ -40,6 +40,7 @@
     "class-validator": "^0.15.1",
     "cloudinary": "^2.10.0",
     "compression": "^1.8.1",
+    "csv-parser": "^3.2.1",
     "mongoose": "^9.9.1",
     "multer": "^2.2.0",
     "passport": "^0.7.0",

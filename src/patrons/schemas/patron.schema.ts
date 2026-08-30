@@ -31,6 +31,9 @@ export class Patron {
 
   @Prop({ default: 99 })
   order: number;
+
+  @Prop({ type: { twitter: String, linkedin: String, instagram: String, facebook: String, tiktok: String, snapchat: String } })
+  socialLinks: { twitter: string; linkedin: string; instagram: string; facebook: string; tiktok: string; snapchat: string };
 }
 
 export const PatronSchema = SchemaFactory.createForClass(Patron);

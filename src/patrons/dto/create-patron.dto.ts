@@ -35,4 +35,7 @@ export class CreatePatronDto {
 
   @IsOptional()
   order?: number;
+
+  @IsOptional()
+  socialLinks?: { twitter?: string; linkedin?: string; instagram?: string; facebook?: string; tiktok?: string; snapchat?: string };
 }

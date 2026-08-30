@@ -38,8 +38,11 @@ export class Leader {
   @Prop({ default: 99 })
   order: number;
 
-  @Prop({ type: { twitter: String, linkedin: String, instagram: String } })
-  socialLinks: { twitter: string; linkedin: string; instagram: string };
+  @Prop()
+  courseOfStudy: string;
+
+  @Prop({ type: { twitter: String, linkedin: String, instagram: String, facebook: String, tiktok: String, snapchat: String } })
+  socialLinks: { twitter: string; linkedin: string; instagram: string; facebook: string; tiktok: string; snapchat: string };
 }
 
 export const LeaderSchema = SchemaFactory.createForClass(Leader);
