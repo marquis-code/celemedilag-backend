@@ -9,7 +9,7 @@ export class CloudinaryService {
       const isImage = file.mimetype.startsWith('image/');
       const options: any = {
         folder: 'celemedilag',
-        resource_type: 'auto',
+        resource_type: isImage ? 'auto' : 'raw',
       };
 
       if (isImage) {
