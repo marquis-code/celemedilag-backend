@@ -19,6 +19,7 @@ import { StatsModule } from './stats/stats.module';
 import { ContactModule } from './contact/contact.module';
 import { PatronsModule } from './patrons/patrons.module';
 import { DocumentsModule } from './documents/documents.module';
+import { OrganogramModule } from './organogram/organogram.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -46,6 +47,7 @@ import { DocumentsModule } from './documents/documents.module';
     ContactModule,
     PatronsModule,
     DocumentsModule,
+    OrganogramModule,
   ],
   controllers: [AppController],
   providers: [AppService],

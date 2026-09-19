@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 export type LeaderDocument = Leader & Document;
 
@@ -10,6 +10,9 @@ export class Leader {
 
   @Prop({ required: true })
   position: string;
+
+  @Prop({ type: Types.ObjectId, ref: 'OrganogramNode', default: null })
+  organogramNodeId: Types.ObjectId;
 
   @Prop()
   tenure: string;
