@@ -18,7 +18,7 @@ import { UploadModule } from './upload/upload.module';
 import { StatsModule } from './stats/stats.module';
 import { ContactModule } from './contact/contact.module';
 import { PatronsModule } from './patrons/patrons.module';
-
+import { DocumentsModule } from './documents/documents.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -45,6 +45,7 @@ import { PatronsModule } from './patrons/patrons.module';
     StatsModule,
     ContactModule,
     PatronsModule,
+    DocumentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

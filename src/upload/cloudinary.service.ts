@@ -6,15 +6,21 @@ import * as streamifier from 'streamifier';
 export class CloudinaryService {
   uploadFile(file: Express.Multer.File): Promise<UploadApiResponse | UploadApiErrorResponse> {
     return new Promise((resolve, reject) => {
+      const isImage = file.mimetype.startsWith('image/');
+      const options: any = {
+        folder: 'celemedilag',
+        resource_type: 'auto',
+      };
+
+      if (isImage) {
+        options.format = 'webp';
+        options.quality = 'auto:eco';
+        options.width = 1200;
+        options.crop = 'limit';
+      }
+
       const uploadStream = cloudinary.uploader.upload_stream(
-        {
-          folder: 'celemedilag',
-          resource_type: 'auto',
-          format: 'webp',
-          quality: 'auto:eco',
-          width: 1200,
-          crop: 'limit',
-        },
+        options,
         (error, result) => {
           if (error) return reject(error);
           if (!result) return reject(new Error('Upload failed with no result'));

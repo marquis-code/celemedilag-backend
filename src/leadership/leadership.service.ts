@@ -69,8 +69,13 @@ export class LeadershipService {
 
           for (const row of results) {
             try {
+              const getVal = (r: any, k: string) => {
+                const found = Object.keys(r).find(key => key.trim().toLowerCase() === k.toLowerCase());
+                return found ? r[found] : undefined;
+              };
+
               let avatarUrl = '';
-              const avatarFilename = row.avatar || row.image || row.photo;
+              const avatarFilename = getVal(row, 'avatar') || getVal(row, 'image') || getVal(row, 'photo');
               if (avatarFilename && imageMap.has(avatarFilename)) {
                 const imgFile = imageMap.get(avatarFilename);
                 if (imgFile) {
@@ -81,26 +86,29 @@ export class LeadershipService {
                  avatarUrl = avatarFilename;
               }
 
+              const rawIsPastExco = String(getVal(row, 'isPastExco') || '').trim().toLowerCase();
+              const isPastExco = rawIsPastExco === 'true' || rawIsPastExco === '1' || rawIsPastExco === 'yes';
+
               const newLeader = new this.leaderModel({
-                name: row.name,
-                position: row.position,
-                tenure: row.tenure,
-                session: row.session,
-                isPastExco: row.isPastExco === 'true' || row.isPastExco === '1',
+                name: getVal(row, 'name'),
+                position: getVal(row, 'position'),
+                tenure: getVal(row, 'tenure'),
+                session: getVal(row, 'session'),
+                isPastExco,
                 avatar: avatarUrl,
-                bio: row.bio,
-                department: row.department,
-                email: row.email,
-                phone: row.phone,
-                order: parseInt(row.order) || 99,
-                courseOfStudy: row.courseOfStudy,
+                bio: getVal(row, 'bio'),
+                department: getVal(row, 'department'),
+                email: getVal(row, 'email'),
+                phone: getVal(row, 'phone'),
+                order: parseInt(getVal(row, 'order')) || 99,
+                courseOfStudy: getVal(row, 'courseOfStudy') || getVal(row, 'course of study'),
                 socialLinks: {
-                  twitter: row.twitter || '',
-                  linkedin: row.linkedin || '',
-                  instagram: row.instagram || '',
-                  facebook: row.facebook || '',
-                  tiktok: row.tiktok || '',
-                  snapchat: row.snapchat || ''
+                  twitter: getVal(row, 'twitter') || '',
+                  linkedin: getVal(row, 'linkedin') || '',
+                  instagram: getVal(row, 'instagram') || '',
+                  facebook: getVal(row, 'facebook') || '',
+                  tiktok: getVal(row, 'tiktok') || '',
+                  snapchat: getVal(row, 'snapchat') || ''
                 }
               });
               await newLeader.save();
