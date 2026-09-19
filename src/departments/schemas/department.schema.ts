@@ -8,6 +8,9 @@ export class Department {
   @Prop({ required: true })
   name: string;
 
+  @Prop({ default: 0 })
+  displayOrder: number;
+
   @Prop()
   category: string;
 

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { DepartmentsService } from './departments.service';
 import { CreateDepartmentDto } from './dto/create-department.dto';
 
@@ -14,6 +14,11 @@ export class DepartmentsController {
   @Get()
   findAll() {
     return this.departmentsService.findAll();
+  }
+
+  @Put('reorder')
+  reorder(@Body() updates: { id: string, category: string, displayOrder: number }[]) {
+    return this.departmentsService.reorder(updates);
   }
 
   @Get(':id')
