@@ -1,13 +1,11 @@
-import { Controller, Get, Post, Body, Param, Delete, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Query } from '@nestjs/common';
 import { DocumentsService } from './documents.service';
 import { CreateDocumentDto } from './dto/create-document.dto';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('documents')
 export class DocumentsController {
   constructor(private readonly documentsService: DocumentsService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() createDocumentDto: CreateDocumentDto) {
     return this.documentsService.create(createDocumentDto);
@@ -23,7 +21,6 @@ export class DocumentsController {
     return this.documentsService.findOne(id);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.documentsService.remove(id);

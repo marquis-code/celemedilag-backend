@@ -26,6 +26,7 @@ const upload_module_1 = require("./upload/upload.module");
 const stats_module_1 = require("./stats/stats.module");
 const contact_module_1 = require("./contact/contact.module");
 const patrons_module_1 = require("./patrons/patrons.module");
+const documents_module_1 = require("./documents/documents.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -56,6 +57,7 @@ exports.AppModule = AppModule = __decorate([
             stats_module_1.StatsModule,
             contact_module_1.ContactModule,
             patrons_module_1.PatronsModule,
+            documents_module_1.DocumentsModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
