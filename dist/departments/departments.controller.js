@@ -27,6 +27,9 @@ let DepartmentsController = class DepartmentsController {
     findAll() {
         return this.departmentsService.findAll();
     }
+    reorder(updates) {
+        return this.departmentsService.reorder(updates);
+    }
     findOne(id) {
         return this.departmentsService.findOne(id);
     }
@@ -51,6 +54,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], DepartmentsController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Put)('reorder'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array]),
+    __metadata("design:returntype", void 0)
+], DepartmentsController.prototype, "reorder", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

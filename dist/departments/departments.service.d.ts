@@ -10,5 +10,10 @@ export declare class DepartmentsService {
     findAll(): Promise<Department[]>;
     findOne(id: string): Promise<Department>;
     update(id: string, updateDepartmentDto: CreateDepartmentDto): Promise<Department>;
+    reorder(updates: {
+        id: string;
+        category: string;
+        displayOrder: number;
+    }[]): Promise<any>;
     remove(id: string): Promise<Department>;
 }

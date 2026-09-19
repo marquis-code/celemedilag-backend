@@ -1,8 +1,9 @@
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 export type LeaderDocument = Leader & Document;
 export declare class Leader {
     name: string;
     position: string;
+    organogramNodeId: Types.ObjectId;
     tenure: string;
     isPastExco: boolean;
     session: string;
@@ -25,7 +26,7 @@ export declare class Leader {
 export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mongoose").Model<Leader, any, any, any, any, any, Leader>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Leader, Document<unknown, {}, Leader, {
     id: string;
 }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-    _id: import("mongoose").Types.ObjectId;
+    _id: Types.ObjectId;
 } & {
     __v: number;
 }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -34,7 +35,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     name?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -43,7 +44,16 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     position?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & import("mongoose").HydratedDocumentOverrides<{
+        id: string;
+    }>> | undefined;
+    organogramNodeId?: import("mongoose").SchemaDefinitionProperty<Types.ObjectId, Leader, Document<unknown, {}, Leader, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -52,7 +62,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     tenure?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -61,7 +71,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     isPastExco?: import("mongoose").SchemaDefinitionProperty<boolean, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -70,7 +80,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     session?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -79,7 +89,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     avatar?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -88,7 +98,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     bio?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -97,7 +107,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     department?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -106,7 +116,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     email?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -115,7 +125,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     phone?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -124,7 +134,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     order?: import("mongoose").SchemaDefinitionProperty<number, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -133,7 +143,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     courseOfStudy?: import("mongoose").SchemaDefinitionProperty<string, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{
@@ -149,7 +159,7 @@ export declare const LeaderSchema: import("mongoose").Schema<Leader, import("mon
     }, Leader, Document<unknown, {}, Leader, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Leader & {
-        _id: import("mongoose").Types.ObjectId;
+        _id: Types.ObjectId;
     } & {
         __v: number;
     }, "id"> & import("mongoose").HydratedDocumentOverrides<{

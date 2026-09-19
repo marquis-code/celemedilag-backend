@@ -32,7 +32,7 @@ let DepartmentsService = class DepartmentsService {
         return saved;
     }
     async findAll() {
-        return this.departmentModel.find().sort({ createdAt: -1 }).lean().exec();
+        return this.departmentModel.find().sort({ displayOrder: 1, createdAt: -1 }).lean().exec();
     }
     async findOne(id) {
         const department = await this.departmentModel.findById(id).lean().exec();
@@ -47,6 +47,19 @@ let DepartmentsService = class DepartmentsService {
             throw new common_1.NotFoundException(`Department #${id} not found`);
         this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'departments', action: 'update', data: department });
         return department;
+    }
+    async reorder(updates) {
+        const bulkOps = updates.map(update => ({
+            updateOne: {
+                filter: { _id: update.id },
+                update: { $set: { category: update.category, displayOrder: update.displayOrder } }
+            }
+        }));
+        if (bulkOps.length > 0) {
+            await this.departmentModel.bulkWrite(bulkOps);
+            this.updatesGateway.broadcastUpdate('contentUpdated', { type: 'departments', action: 'reorder' });
+        }
+        return { success: true };
     }
     async remove(id) {
         const deletedDepartment = await this.departmentModel.findByIdAndDelete(id).exec();

@@ -27,6 +27,7 @@ const stats_module_1 = require("./stats/stats.module");
 const contact_module_1 = require("./contact/contact.module");
 const patrons_module_1 = require("./patrons/patrons.module");
 const documents_module_1 = require("./documents/documents.module");
+const organogram_module_1 = require("./organogram/organogram.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -58,6 +59,7 @@ exports.AppModule = AppModule = __decorate([
             contact_module_1.ContactModule,
             patrons_module_1.PatronsModule,
             documents_module_1.DocumentsModule,
+            organogram_module_1.OrganogramModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
